@@ -1,0 +1,16 @@
+
+
+version: "2"
+services:
+  node:
+    container_name: app
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    entrypoint: mongod --bind_ip_all
+    container_name: mongodb
+    hostname: mongodb
